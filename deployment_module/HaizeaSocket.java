@@ -31,10 +31,15 @@ public class HaizeaSocket implements Runnable{
 		
 		socket = new DatagramSocket();
 		
+		//Insert here the host with its id in OpenNebula
 		gemini = new OneHost(socket, "gemini", 6);
 		hercules = new OneHost(socket, "hercules", 5);
 		bootes = new OneHost(socket, "bootes", 3);
 		
+		//Define each volume with the two hosts that contain the volume locally
+		//the volumes are located in /data, if they are elsewhere, you should change
+		//in makeImageCopy(String src, String name, String storage) of GlusterFSTools.java /data/ by 
+		//what you want.
 		int[] bohe = {3,5};
 		int[] bege = {3,6};
 		int[] gehe = {6,5};
